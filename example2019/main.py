@@ -19,6 +19,10 @@ if True:
     
 
 if True:
+    # Frequency (Hz), Magnitude 1 (dB),
+    # Phase 1 (deg), Magnitude 2 (dB),
+    # Phase 2 (deg), Math (Ch 1 / Ch 2) magnitude (dB),
+    # Math (Ch 1 / Ch 2) phase (deg)
     data = np.loadtxt('OpenLoop.csv',delimiter=',',comments='%')
     f = data[:,0]
     ch1_mag = data[:,1] # dB
@@ -38,7 +42,7 @@ if True:
     ax1.semilogx(f,tf12_phase,'k-',label='Openloop',linewidth=1)    
     ax1.grid(b=True, which='major', color='gray', linestyle='-')
     ax1.grid(b=True, which='minor', color='gray', linestyle=':')
-    ax1.set_ylabel('Tf12_phase [deg]')    
+    ax1.set_ylabel('phase [deg]')    
     ax1.set_xlim(1e0,3e3)
     ax1.set_xlabel('Frequency [Hz]')
     ax1.set_yticks(np.arange(-180,181,90))
@@ -46,4 +50,3 @@ if True:
     ax1.legend()
     plt.savefig('BODE_OpenLoop.png')
     plt.close()
-
